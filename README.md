@@ -1,54 +1,132 @@
 # ShellForge
 
-ShellForge is a Unix-like shell developed as part of the Operating Systems and Systems Programming Project-Based Learning course.
-
-## Project Overview
-
-ShellForge is developed step by step as part of the Operating Systems and Systems Programming Project-Based Learning course.
-
-The project demonstrates basic shell functionality, command input handling, command parsing, and preparation of commands for process execution.
+ShellForge is a Unix-like shell developed as part of the Operating Systems and Systems Programming (OSSP) course.
 
 ## Features (Week 1)
 
-- Interactive REPL loop
-- Makefile-based build
-- Git repository
-- Linux development environment
+* Interactive REPL loop
+* Makefile-based build
+* Git repository
+* Linux development environment
 
-## Features (Week 2)
+## Build
 
-- Dynamic command input
-- Memory allocation using malloc()
-- Automatic buffer expansion using realloc()
-- Proper memory cleanup using free()
+```bash
+make
+```
 
-## Features (Week 3)
+## Run
 
-- Command parsing using strtok()
-- Dynamic argv[] construction
-- Modular parser implementation
-- Ready for process execution with execvp()
+```bash
+make run
+```
+
+## Week 2 Features
+
+* Dynamic command input
+* Memory allocation using `malloc()`
+* Automatic buffer expansion using `realloc()`
+* Proper memory cleanup using `free()`
+
+## Week 3 Features
+
+* Command parsing
+* Tokenization of user input
+* Creation of argument tokens
+* Dynamic memory allocation for tokens
+* Proper memory cleanup using `free_tokens()`
+
+## Week 4 Features
+
+* Process creation using `fork()`
+* Command execution using `execvp()`
+* Parent-child synchronization using `waitpid()`
+* Error handling using `perror()`
 
 ## Project Structure
 
 ```text
 ShellForge/
-│
-├── Makefile
-├── README.md
-├── .gitignore
-│
+├── bin/
+│   └── shellforge
 ├── include/
-│   ├── shell.h
 │   ├── input.h
-│   └── parser.h
-│
+│   ├── parser.h
+│   ├── process.h
+│   └── shell.h
 ├── src/
-│   ├── main.c
 │   ├── input.c
-│   └── parser.c
-│
-├── docs/
+│   ├── main.c
+│   ├── parser.c
+│   └── process.c
 ├── tests/
 ├── screenshots/
-└── bin/
+├── docs/
+├── Makefile
+└── README.md
+```
+
+## Week 4 Commands Supported
+
+ShellForge can execute Linux commands such as:
+
+```bash
+ls
+pwd
+date
+whoami
+```
+
+Invalid commands are handled using `perror()`.
+
+## Technologies Used
+
+* C Programming
+* Linux
+* GCC
+* Make
+* Git
+* POSIX System Calls
+
+## System Calls Used
+
+* `fork()` - Creates a child process
+* `execvp()` - Executes a Linux command
+* `waitpid()` - Waits for the child process to finish
+* `perror()` - Displays error messages
+
+## Compilation
+
+To compile the project:
+
+```bash
+make clean
+make
+```
+
+## Running the Shell
+
+```bash
+./bin/shellforge
+```
+
+or:
+
+```bash
+make run
+```
+
+## Example
+
+```text
+=================================
+ShellForge Version 1.0
+=================================
+myshell> ls
+myshell> pwd
+myshell> date
+myshell> whoami
+myshell> exit
+Goodbye!
+```
+
